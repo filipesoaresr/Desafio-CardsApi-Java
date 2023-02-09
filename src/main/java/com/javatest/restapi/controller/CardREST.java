@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javatest.restapi.database.CardRepository;
-import com.javatest.restapi.entity.Card;
+import com.javatest.restapi.model.Card;
 
 @RestController
 @RequestMapping("/cards")
@@ -36,8 +36,6 @@ public class CardREST {
        
         card.setId(id);
         return repository.save(card);
-        
-        
         
     }
 

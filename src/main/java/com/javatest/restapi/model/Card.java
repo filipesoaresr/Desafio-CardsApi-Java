@@ -1,4 +1,4 @@
-package com.javatest.restapi.entity;
+package com.javatest.restapi.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
