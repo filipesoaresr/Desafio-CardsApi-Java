@@ -1,6 +1,7 @@
 package com.javatest.restapi.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,13 +18,18 @@ import com.javatest.restapi.model.Card;
 
 @RestController
 @RequestMapping("/cards")
-public class CardREST {
+public class CardController {
     @Autowired
     private CardRepository repository;
 
     @GetMapping
     public List<Card> listAll(){
         return repository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Card> listById(@PathVariable Long id){
+        return repository.findById(id);
     }
 
     @PostMapping
@@ -39,8 +45,8 @@ public class CardREST {
         
     }
 
-    @DeleteMapping
-    public void delete(@RequestBody Card card){
-        repository.delete(card);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        repository.deleteById(id);
     }
 }
